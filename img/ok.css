@@ -1,0 +1,13 @@
+form.dropzone {
+    min-height: 200px;
+    border: 22px dashed #007bff;
+    letter-spacing: 2px!important;
+    position: fixed;
+    width: 100vw;
+    opacity: .4;
+    left: 0;
+    font: 2.2em monospace;
+    height: 68vh;
+    bottom: 0;
+    background: #111218!important;
+}
