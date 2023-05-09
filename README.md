@@ -1,2 +1,4 @@
 # glowfish
-Fiat
+
+
+![lolo](./img/glowfish-logo_small.png)
