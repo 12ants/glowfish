@@ -10,7 +10,13 @@
 </script>
 <!--  -->
 <style>
-::-webkit-scrollbar {width: 6px;background: #00000044;}::-webkit-scrollbar-thumb {background: #00000088;}
+::-webkit-scrollbar {
+width: 6px;
+background: #00000044;
+}
+::-webkit-scrollbar-thumb {
+background: #00000088;
+}
 html {
 scroll-behavior: smooth;
 }
@@ -23,10 +29,102 @@ height: 222vh;
 width: 100%;
 font: 400 18px monospace;
 }
+.over1 {
+position: fixed;
+color: #ffffff;
+padding: 0.1em 4vw;
+background: #222222;
+font: 400 2vw monospace;
+z-index: 12;
+transition: 0.4s;
+mix-blend-mode: exclusion;
+}
+.over1:hover {
+color: #ff22ff;
+padding: 0.1em 22vw;
+background: #09daff;
+transition: 0.4s;
+}
+#right0 {
+right: 0;
+bottom: 50%;
+}
+#left0 {
+left: 0;
+bottom: 50%;
+}
+#work {
+background: #bbbbbb;
+position: ;
+margin-top: 100vh;
+display: block;
+}
+#contact {
+width: ;
+background: #bbbbbb;
+margin-top: 100vh;
+display: block;
+}
+w {
+color: #666666;
+/* background: #ffffff; */
+}
+#center {
+text-align: center;
+}
+
+table {
+position: absolute;
+}
+#tall100 {
+right: 0;
+height: 100vh;
+width: 26vw;
+position: absolute;
+z-index: 11;
+}
+.lanks {
+text-decoration: none;
+}
+p {
+margin: 0 2vw;
+}
 </style>
 </head>
 <body>
+<!-- links -->
+<div>
+<a class="over1" id="right0" href="#contact"><h2>contact</h2></a>
+<a class="over1" id="left0" href="#work"><h2>work</h2></a>
+<div id="tall100"></div>
+
+<!-- sections -->
+<div id="work">
+<p>
+<br /><br />
+<u>work:</u>
+<br />
+<a href="https://github.com/12ants"><w>github</w></a>
+<br /><br /><br />
+</p>
+</div>
+<br />
+<div id="contact">
+<p>
+<br /><br />
+<u>contact:</u>
+<br />
+</p>
+<p id="center">
+Leon Ljunghorn <w>| <a class="lanks" href="mailto:leon@glowfish.se">leon@glowfish.se</a> |</w> +46790372242
+</p>
+<br />
+<br />
+<br />
+</div>
+
 <!--  -->
+
 <script type="module">
 import * as THREE from 'three';
 import { AsciiEffect } from 'three/addons/effects/AsciiEffect.js';
@@ -37,9 +135,9 @@ const start = Date.now();
 init();
 animate();
 function init() {
-camera = new THREE.PerspectiveCamera(110, window.innerWidth / window.innerHeight, 1, 1000);
-camera.position.y = 280;
-camera.position.z = 0;
+camera = new THREE.PerspectiveCamera(90, window.innerWidth / window.innerHeight, 1, 2000);
+camera.position.y = 800;
+camera.position.z = 111;
 camera.position.x = 1;
 scene = new THREE.Scene();
 scene.background = new THREE.Color(0, 0, 0);
@@ -60,6 +158,8 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 effect = new AsciiEffect(renderer, '_-glowfish.:', { invert: true });
 effect.setSize(window.innerWidth, window.innerHeight);
 effect.domElement.style.color = 'white';
+effect.domElement.style.position = 'absolute';
+effect.domElement.style.top = '0';
 document.body.appendChild(effect.domElement);
 controls = new TrackballControls(camera, effect.domElement);
 window.addEventListener('resize', onWindowResize);
@@ -92,5 +192,6 @@ controls.update();
 effect.render(scene, camera);
 }
 </script>
+</div>
 </body>
 </html>
